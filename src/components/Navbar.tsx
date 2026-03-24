@@ -1,62 +1,68 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Academics", href: "#academics" },
-  { label: "Admissions", href: "#admissions" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Academics", href: "/academics" },
+  { label: "Admissions", href: "/admissions" },
+  { label: "Career & Campus", href: "/career-campus" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  const scrollTo = (href: string) => {
-    setOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between h-16">
-        <a href="#home" onClick={() => scrollTo("#home")} className="font-heading text-lg text-primary-foreground tracking-wide">
+        <Link to="/" className="font-heading text-lg text-primary-foreground tracking-wide">
           Kiarithaini <span className="text-gold">High School</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
-        <ul className="hidden md:flex gap-1">
+        <ul className="hidden lg:flex gap-1">
           {links.map((l) => (
             <li key={l.href}>
-              <button
-                onClick={() => scrollTo(l.href)}
-                className="px-3 py-2 text-sm text-primary-foreground/80 hover:text-gold transition-colors rounded-md"
+              <Link
+                to={l.href}
+                className={`px-3 py-2 text-sm rounded-md transition-colors ${
+                  location.pathname === l.href
+                    ? "text-gold"
+                    : "text-primary-foreground/80 hover:text-gold"
+                }`}
               >
                 {l.label}
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-primary-foreground" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-primary-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-navy border-t border-navy-light">
+        <div className="lg:hidden bg-navy border-t border-navy-light">
           {links.map((l) => (
-            <button
+            <Link
               key={l.href}
-              onClick={() => scrollTo(l.href)}
-              className="block w-full text-left px-6 py-3 text-primary-foreground/80 hover:text-gold hover:bg-navy-light/30 transition-colors"
+              to={l.href}
+              onClick={() => setOpen(false)}
+              className={`block w-full text-left px-6 py-3 transition-colors ${
+                location.pathname === l.href
+                  ? "text-gold bg-navy-light/30"
+                  : "text-primary-foreground/80 hover:text-gold hover:bg-navy-light/30"
+              }`}
             >
               {l.label}
-            </button>
+            </Link>
           ))}
         </div>
       )}
