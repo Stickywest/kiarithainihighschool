@@ -8,7 +8,7 @@ import Index from "./pages/Index.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import AcademicsPage from "./pages/AcademicsPage.tsx";
 import AdmissionsPage from "./pages/AdmissionsPage.tsx";
-import CareerCampusPage from "./pages/CareerCampusPage.tsx";
+import CareerPathwaysPage from "./pages/CareerPathwaysPage.tsx";
 import GalleryPage from "./pages/GalleryPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -27,7 +27,7 @@ const App = () => (
           <Route path="/about" element={<AboutPage />} />
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
-          <Route path="/career-campus" element={<CareerCampusPage />} />
+          <Route path="/career-pathways" element={<CareerPathwaysPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />

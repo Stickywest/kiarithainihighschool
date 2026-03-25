@@ -7,7 +7,7 @@ const links = [
   { label: "About Us", href: "/about" },
   { label: "Academics", href: "/academics" },
   { label: "Admissions", href: "/admissions" },
-  { label: "Career & Campus", href: "/career-campus" },
+  { label: "Career Pathways", href: "/career-pathways" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact Us", href: "/contact" },
 ];
