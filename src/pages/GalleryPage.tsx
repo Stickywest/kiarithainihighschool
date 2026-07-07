@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const galleries = [
-  { category: "Campus", items: [
+  { category: "Our School", items: [
     { label: "Main Administration Block", color: "from-primary/20 to-accent" },
     { label: "Science Laboratories", color: "from-gold/20 to-accent" },
     { label: "School Library", color: "from-primary/30 to-muted" },
