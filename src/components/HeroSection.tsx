@@ -41,7 +41,7 @@ const HeroSection = () => (
         transition={{ delay: 0.6, duration: 0.6 }}
         className="text-primary-foreground/80 text-lg md:text-xl italic font-light mb-8"
       >
-        "Strive for Excellence"
+        "Determined to Excellence"
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
